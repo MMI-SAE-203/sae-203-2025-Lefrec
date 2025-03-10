@@ -1,0 +1,67 @@
+---
+import Logo from "../assets/icons/logo.svg";
+import Burger_bars from "../assets/icons/burger-icon-bars.svg";
+import Burger_cross from "../assets/icons/burger-icon-cross.svg";
+import Facebook from "../assets/icons/facebook.svg";
+import Instagram from "../assets/icons/instagram.svg";
+import Youtube from "../assets/icons/youtube.svg";
+---
+
+<header
+    x-data="{ open : false }"
+    class="fixed flex w-full h-16 justify-between items-center px-3 py-1 bg-light z-2"
+>
+    <a href="/">
+        <Logo />
+    </a>
+    <button @click="open = !open" aria-controls="menu" :aria-expanded="open">
+        <Burger_bars x-show="!open" />
+        <Burger_cross x-show="open" />
+    </button>
+    <nav
+        x-show="open"
+        :aria-expanded="open"
+        :aria-hidden="!open"
+        id="menu"
+        class="flex-1 px-6 py-12 flex justify-between mt-16 flex-col fixed z-10 inset-0 bg-linear-to-b from-light to-ton visible opacity-100"
+    >
+        <ul class="flex flex-col gap-8 font-heading text-3xl tracking-wider">
+            <li>
+                <a href="/festival">Le festival</a>
+            </li>
+            <li>
+                <a href="/programme">Le programme</a>
+            </li>
+            <li>
+                <a href="/billeterie">La billeterie</a>
+            </li>
+            <li>
+                <a href="/films">À l'affiche</a>
+            </li>
+            <li>
+                <a href="/invites">Les invités</a>
+            </li>
+            <li>
+                <a href="/infos">Infos pratiques</a>
+            </li>
+            <li>
+                <a href="/contact">Nous contacter</a>
+            </li>
+        </ul>
+        <ul class="flex gap-6 justify-end m-4" aria-label="Réseaux sociaux">
+            <li>
+                <a href="https://www.facebook.com/mmimontbeliard/"
+                    ><Facebook aria-label="Logo Facebook" /></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/mmi_montbeliard/"
+                    ><Instagram aria-label="Logo Instagram" /></a>
+            </li>
+            <li>
+                <a
+                    href="https://www.youtube.com/channel/UCgW7jR8McJwjxPh0fDQaXGg/videos"
+                    ><Youtube aria-label="Logo Youtube" /></a>
+            </li>
+        </ul>
+    </nav>
+</header>
