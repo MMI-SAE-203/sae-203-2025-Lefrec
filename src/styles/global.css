@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-heading: "Bebas Neue", sans-serif;
+    --font-common: "Raleway", sans-serif;
+
+    --color-dom: #ffe800;
+    --color-ton: #ff9ae6;
+    --color-light: #ffffff;
+    --color-dark: #1e1e1e;
+}
