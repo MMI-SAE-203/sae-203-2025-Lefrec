@@ -10,3 +10,9 @@
     --color-light: #ffffff;
     --color-dark: #1e1e1e;
 }
+
+@layer base{
+    * {
+        font-family: var(--font-common);
+    }
+}
