@@ -1,9 +1,10 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
 import "../styles/global.css";
 
-const { title } = Astro.props;
+const { titre, photo_URL } = Astro.props;
 ---
 
 <html lang="fr">
@@ -11,12 +12,13 @@ const { title } = Astro.props;
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title ? `${title} — Ciné Flash 25` : "Ciné Flash 25"}</title>
+        <title>{titre ? `${titre} — Ciné Flash 25` : "Ciné Flash 25"}</title>
     </head>
 
     <body>
         <Header />
-        <main class="p-10">
+        <main class="p-8 mt-16 bg-light-gray">
+            <Hero titre={titre} photo_URL={photo_URL} />
             <slot />
         </main>
         <Footer />

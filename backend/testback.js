@@ -1,11 +1,11 @@
 import {addEntry, allActivites, allFilms, allInvites, getActivite, getActivitesByInviteId, getActivitesByInviteNom, getFilm, getInvite} from "./backend.mjs"
 
-// try {
-//     const records = await allFilms();
-//     console.log(JSON.stringify(records,null,2));
-//     }catch(e){
-//     console.error(e)
-// }
+try {
+    const records = await allFilms();
+    console.log(JSON.stringify(records,null,2));
+    }catch(e){
+    console.error(e)
+}
 
 // try {
 //     const records = await allActivites();

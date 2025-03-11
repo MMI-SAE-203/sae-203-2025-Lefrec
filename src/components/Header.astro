@@ -6,7 +6,7 @@ import Burger_cross from "../assets/icons/burger-icon-cross.svg";
 
 <header
     x-data="{ open : false }"
-    class="fixed flex w-full h-16 justify-between items-center px-3 py-1 bg-light z-2"
+    class="fixed inset-0 flex w-full h-16 justify-between items-center px-3 py-1 bg-light z-2"
 >
     <a href="/">
         <Logo />
@@ -20,7 +20,7 @@ import Burger_cross from "../assets/icons/burger-icon-cross.svg";
         :aria-expanded="open"
         :aria-hidden="!open"
         id="menu"
-        class="flex-1 px-6 py-12 flex justify-between mt-16 flex-col fixed z-10 inset-0 bg-linear-to-b from-light to-ton visible opacity-100"
+        class="flex-1 px-12 py-16 flex justify-between mt-16 flex-col fixed z-10 inset-0 bg-linear-to-b from-light to-ton visible opacity-100"
     >
         <ul class="flex flex-col gap-8 *:*:font-heading text-3xl tracking-wider">
             <li>

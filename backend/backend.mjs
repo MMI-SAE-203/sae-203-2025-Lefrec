@@ -8,6 +8,7 @@ export async function allFilms() {
         );
         data = data.map((film) => {
             film.affiche_URL = pb.files.getURL(film, film.affiche);
+            film.photo_URL = pb.files.getURL(film, film.photo);
             return film;
         })
         return data;
@@ -53,6 +54,7 @@ export async function getFilm(id) {
     try {
         let data = await pb.collection('FILM').getOne(id);
         data.affiche_URL = pb.files.getURL(data, data.affiche);
+        data.photo_URL = pb.files.getURL(data, data.photo);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant le film', error);
