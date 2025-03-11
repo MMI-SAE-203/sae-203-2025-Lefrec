@@ -17,3 +17,9 @@
         font-family: var(--font-common);
     }
 }
+
+@layer components{
+    .btn {
+        @apply bg-ton py-2 px-4 gap-2 rounded-bl-md rounded-tr-md uppercase font-medium text-sm hover:text-light active:text-light
+    }
+}

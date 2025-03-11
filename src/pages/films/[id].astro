@@ -1,0 +1,16 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getFilm } from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+const film = await getFilm(id);
+console.log(film);
+const annee_string = String(film.annee_sortie);
+---
+
+<Layout titre={film.titre} photo_URL={film.photo_URL} infos={[annee_string,(film.duree+" min"),film.genre[0]]}>
+    <p>Bonjour</p>
+    <button class="btn">
+        Voir les autres films
+    </button>
+</Layout>

@@ -1,0 +1,15 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getInvite} from "../../../backend/backend.mjs";
+
+const {id} = Astro.params;
+const invite = await getInvite(id);
+console.log(invite);
+---
+
+<Layout titre={(invite.prenom+" "+invite.nom)}infos={[invite.role]}>
+    <p>Bonjour</p>
+    <button class="btn">
+        Voir les autres invités
+    </button>
+</Layout>
