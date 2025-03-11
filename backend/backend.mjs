@@ -55,6 +55,9 @@ export async function getFilm(id) {
         let data = await pb.collection('FILM').getOne(id);
         data.affiche_URL = pb.files.getURL(data, data.affiche);
         data.photo_URL = pb.files.getURL(data, data.photo);
+        let embed_link = data.bande_annonce.replace("watch?v=", "embed/");
+        embed_link = embed_link.slice(0,data.bande_annonce.indexOf("&")-2);
+        data.bande_annonce_embed = embed_link;
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant le film', error);

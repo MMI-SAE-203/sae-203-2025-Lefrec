@@ -1,0 +1,50 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getActivite, getInvite } from "../../../backend/backend.mjs";
+
+const { id } = Astro.params;
+const activite = await getActivite(id);
+console.log(activite);
+const invite = await getInvite(activite.encadrer);
+console.log(invite);
+---
+
+<Layout titre={activite.titre}>
+    <div class="flex flex-col gap-8">
+        <div class="flex gap-4">
+            <img
+                class="w-1/2 h-[150px] object-cover"
+                src={activite.photo_URL}
+                alt="Affiche du film"
+            />
+            <div class="flex flex-col gap-2">
+                <p class="font-heading text-xl">{activite.titre}</p>
+                <div
+                    class="flex flex-wrap gap-2 text-xs font-semibold *:border-1 *:rounded-md *:p-1"
+                >
+                    <p>{activite.type}</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3>Présentation</h3>
+            <p>{activite.description}</p>
+        </div>
+        <div
+            class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg"
+        >
+            <p class="text-sm">
+                Lors de cette activité vous serez accompagné par <a
+                    href={`/invites/${invite.id}`}
+                    >{invite.prenom} {invite.nom}</a
+                >
+            </p>
+            <img
+                class="w-[100px] h-[125px] object-cover rounded-md"
+                src={invite.photo_URL}
+                alt="Photo portrait de l'accompagnateur"
+            />
+        </div>
+        <a href="/activites" class="btn self-end">Voir les autres activités</a>
+    </div>
+</Layout>

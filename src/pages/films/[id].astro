@@ -40,8 +40,32 @@ const annee_string = String(film.annee_sortie);
             <h3>Synopsis</h3>
             <p>{film.description}</p>
         </div>
-        <div class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg">
-            <p class="text-sm">Ce film vous sera présenté par notre super invité.e <a href={`/invites/${invite.id}`}>{invite.prenom} {invite.nom}</a> </p>
+        {
+            film.bande_annonce_embed ? (
+                <div class="flex flex-col gap-4">
+                    <h3>Bande-annonce</h3>
+                    <iframe
+                        width="full"
+                        height="250"
+                        src={film.bande_annonce_embed}
+                        allow="autoplay; encrypted-media; gyroscope"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    />
+                </div>
+            ) : (
+                ""
+            )
+        }
+        <div
+            class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg"
+        >
+            <p class="text-sm">
+                Ce film vous sera présenté par notre super invité.e <a
+                    href={`/invites/${invite.id}`}
+                    >{invite.prenom} {invite.nom}</a
+                >
+            </p>
             <img
                 class="w-[100px] h-[125px] object-cover rounded-md"
                 src={invite.photo_URL}
