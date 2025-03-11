@@ -53,11 +53,18 @@ export async function allInvites() {
 export async function getFilm(id) {
     try {
         let data = await pb.collection('FILM').getOne(id);
+        //Récupération des URL des photos
         data.affiche_URL = pb.files.getURL(data, data.affiche);
         data.photo_URL = pb.files.getURL(data, data.photo);
+        //Transformation du lien de la vidéo en lien d'intégration
         let embed_link = data.bande_annonce.replace("watch?v=", "embed/");
         embed_link = embed_link.slice(0,data.bande_annonce.indexOf("&")-2);
         data.bande_annonce_embed = embed_link;
+        //Formatage de l'année de sortie
+        data.annee_string = data.annee_sortie.toString();
+        //Formatage de la date et de l'heure de diffusion
+        data.jour = formatDate(data.date_heure);
+        data.heure = formatHeure(data.date_heure);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant le film', error);
@@ -133,4 +140,21 @@ export async function addEntry(collection, data) {
             message: 'Une erreur est survenue en ajoutant cette entrée'
         };
     }
+}
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr.replace(" ", "T"));
+    return new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+    }).format(date);
+}
+
+function formatHeure(dateStr) {
+    const date = new Date(dateStr.replace(" ", "T"));
+    return new Intl.DateTimeFormat("fr-FR", {
+        hour: "2-digit",
+        minute: "2-digit",
+    }).format(date).replace(":", "h");
 }

@@ -7,13 +7,12 @@ const film = await getFilm(id);
 console.log(film);
 const invite = await getInvite(film.accompagner);
 console.log(invite);
-const annee_string = String(film.annee_sortie);
 ---
 
 <Layout
     titre={film.titre}
     photo_URL={film.photo_URL}
-    infos={[annee_string, film.duree + " min", film.genre[0]]}
+    infos={[film.annee_string, film.duree + " min", film.genre[0]]}
 >
     <div class="flex flex-col gap-8">
         <div class="flex gap-4">
@@ -25,7 +24,7 @@ const annee_string = String(film.annee_sortie);
             <div class="flex flex-col gap-2">
                 <p class="font-heading text-xl">{film.titre}</p>
                 <div class="flex gap-2 text-sm">
-                    <p>{annee_string}</p>
+                    <p>{film.annee_string}</p>
                     <p>{film.duree} min</p>
                 </div>
                 <div
@@ -33,7 +32,13 @@ const annee_string = String(film.annee_sortie);
                 >
                     {film.genre.map((gen) => <p>{gen}</p>)}
                 </div>
-                <p class="text-xs">Acteurs : {film.liste_acteurs}</p>
+                {
+                    film.liste_acteurs ? (
+                        <p class="text-xs">Acteurs : {film.liste_acteurs}</p>
+                    ) : (
+                        ""
+                    )
+                }
             </div>
         </div>
         <div class="flex flex-col gap-4">
@@ -61,10 +66,12 @@ const annee_string = String(film.annee_sortie);
             class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg"
         >
             <p class="text-sm">
-                Ce film vous sera présenté par notre super invité.e <a
+                Ce film vous sera présenté par notre super invité.e 
+                <a
                     href={`/invites/${invite.id}`}
                     >{invite.prenom} {invite.nom}</a
                 >
+                le {film.jour} à {film.heure}.
             </p>
             <img
                 class="w-[100px] h-[125px] object-cover rounded-md"
