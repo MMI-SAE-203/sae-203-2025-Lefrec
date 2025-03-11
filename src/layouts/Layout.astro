@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import "../styles/global.css";
 
-const { titre, photo_URL } = Astro.props;
+const { titre, photo_URL, infos } = Astro.props;
 ---
 
 <html lang="fr">
@@ -18,7 +18,7 @@ const { titre, photo_URL } = Astro.props;
     <body>
         <Header />
         <main class="p-8 mt-16 bg-light-gray">
-            <Hero titre={titre} photo_URL={photo_URL} />
+            <Hero titre={titre} photo_URL={photo_URL} infos={infos}/>
             <slot />
         </main>
         <Footer />

@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
+import { getFilm } from "../../backend/backend.mjs";
+const film = await getFilm("pq4b153f0n2946y");
+const annee_string = String(film.annee_sortie);
 ---
 
-<Layout titre="Ciné Flash 25" photo_URL="https://paolo-vincent.fr/photo/billetterie.avif">
+<Layout titre={film.titre} photo_URL={film.photo_URL} infos={[annee_string,(film.duree+" min"),film.genre[0]]}>
     Test
 </Layout>
