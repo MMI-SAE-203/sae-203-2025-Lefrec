@@ -16,8 +16,11 @@
     * {
         @apply font-common
     }
+    h2 {
+        @apply flex items-center gap-1 text-2xl font-semibold underline decoration-dom decoration-3
+    }
     h3 {
-        @apply flex items-center gap-1 text-xl font-medium
+        @apply flex items-center gap-1 text-xl font-medium text-nowrap
         before:w-full before:h-[2px] before:bg-ton
         after:w-full after:h-[2px] after:bg-ton
     }
@@ -29,6 +32,6 @@
 
 @layer components{
     .btn {
-        @apply bg-ton py-2 px-4 gap-2 rounded-bl-md rounded-tr-md uppercase font-medium text-sm hover:text-light active:text-light
+        @apply bg-ton py-2 px-4 gap-2 rounded-md uppercase font-medium text-xs w-fit hover:text-light no-underline active:text-light
     }
 }

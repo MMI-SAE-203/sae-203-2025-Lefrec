@@ -1,15 +1,33 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getInvite} from "../../../backend/backend.mjs";
+import { getInvite } from "../../../backend/backend.mjs";
 
-const {id} = Astro.params;
+const { id } = Astro.params;
 const invite = await getInvite(id);
 console.log(invite);
 ---
 
-<Layout titre={(invite.prenom+" "+invite.nom)}infos={[invite.role]}>
-    <p>Bonjour</p>
-    <button class="btn">
-        Voir les autres invités
-    </button>
+<Layout titre={invite.prenom + " " + invite.nom} infos={[invite.role]}>
+    <div class="flex flex-col gap-8">
+        <div class="flex gap-4">
+            <img
+                class="w-[150px] h-[150px] object-cover"
+                src={invite.photo_URL}
+                alt="Affiche du film"
+            />
+            <div class="flex flex-col gap-2">
+                <p class="font-heading text-xl">{invite.prenom} {invite.nom}</p>
+                <p class="text-sm">{invite.role}</p>
+                <p>
+                    est l'un.e des invités spéciaux pour la première édition du
+                    festival !
+                </p>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3>Présentation</h3>
+            <p>{invite.biographie}</p>
+        </div>
+        <a href="/invites" class="btn self-end">Voir les autres invités</a>
+    </div>
 </Layout>

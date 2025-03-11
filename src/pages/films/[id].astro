@@ -18,7 +18,7 @@ const annee_string = String(film.annee_sortie);
     <div class="flex flex-col gap-8">
         <div class="flex gap-4">
             <img
-                class="w-[125px] h-fit"
+                class="w-[125px] h-[175px] object-cover"
                 src={film.affiche_URL}
                 alt="Affiche du film"
             />
@@ -48,5 +48,6 @@ const annee_string = String(film.annee_sortie);
                 alt="Photo portrait de l'accompagnateur"
             />
         </div>
+        <a href="/films" class="btn self-end">Voir les autres films</a>
     </div>
 </Layout>
