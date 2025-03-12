@@ -1,8 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CardCarousel from "../components/CardCarousel.astro";
 ---
 
-<Layout titre="Ciné Flash 25" photo_URL="https://paolo-vincent.fr/photo/montagne.avif">
-    <h2>Titre beaucoup plus du cul de dieu c'est chaud</h2>
-    <h3>Titre très long du cul</h3>
+<Layout
+    titre="Ciné Flash 25"
+    photo_URL="https://paolo-vincent.fr/photo/montagne.avif"
+>
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+            <h2>Le festival</h2>
+            <p>
+                Le festival <strong>CinéFlash 25</strong> est un événement de courts
+                métrages en plein air qui se tiendra pour la première fois à <strong
+                    >Ornans</strong
+                >, dans le Doubs, <strong>du 8 au 10 août 2025</strong>. Ce festival unique
+                proposera une sélection variée de
+                <strong>films courts</strong>, mettant en lumière le talent de
+                cinéastes émergents et confirmés.
+            </p>
+            <a class="btn self-end" href="/festival">En apprendre plus sur le festival</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>Le programme</h2>
+        </div>
+    </div>
 </Layout>

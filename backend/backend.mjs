@@ -79,6 +79,9 @@ export async function getActivite(id) {
     try {
         let data = await pb.collection('ACTIVITE').getOne(id);
         data.photo_URL = pb.files.getURL(data, data.photo);
+        //Formatage de la date et de l'heure de diffusion
+        data.jour = formatDate(data.date_heure);
+        data.heure = formatHeure(data.date_heure);
         return data;
     } catch (error) {
         console.log('Une erreur est survenue en lisant l activité', error);
@@ -142,6 +145,32 @@ export async function addEntry(collection, data) {
             success: false,
             message: 'Une erreur est survenue en ajoutant cette entrée'
         };
+    }
+}
+
+export async function getActivitesAndFilmsById(id) {
+    try {
+        let activites = await pb.collection('ACTIVITE').getFullList(
+            { sort: "date_heure" , filter: `encadrer = '${id}'`}
+        );
+        activites = activites.map((activite) => {
+            activite.photo_URL = pb.files.getURL(activite, activite.photo);
+            return activite;
+        })
+
+        let films = await pb.collection('FILM').getFullList(
+            { sort: "date_heure" , filter: `accompagner = '${id}'`}
+        );
+        films = films.map((film) => {
+            film.photo_URL = pb.files.getURL(film, film.photo);
+            return film;
+        })
+        let data = films.concat(activites);
+        return data;
+
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant la liste des activités et des films', error);
+        return null;
     }
 }
 
