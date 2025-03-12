@@ -1,0 +1,16 @@
+---
+import Layout from "../..//layouts/Layout.astro";
+import CardFilm from "../../components/CardFilm.astro";
+
+import { allFilms } from "../../../backend/backend.mjs";
+const films = await allFilms();
+console.log(films);
+---
+
+<Layout titre="Films à l'affiche" photo_URL={films[0].photo_URL}>
+    <h3>Édition 2025</h3>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center">
+        {films.map((film) => <CardFilm {...film} />)}
+    </div>
+    <div class="w-full h-[2px] bg-ton"></div>
+</Layout>

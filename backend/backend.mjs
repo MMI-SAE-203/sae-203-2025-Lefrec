@@ -9,6 +9,7 @@ export async function allFilms() {
         data = data.map((film) => {
             film.affiche_URL = pb.files.getURL(film, film.affiche);
             film.photo_URL = pb.files.getURL(film, film.photo);
+            film.annee_string = film.annee_sortie.toString();
             return film;
         })
         return data;
@@ -58,7 +59,9 @@ export async function getFilm(id) {
         data.photo_URL = pb.files.getURL(data, data.photo);
         //Transformation du lien de la vidéo en lien d'intégration
         let embed_link = data.bande_annonce.replace("watch?v=", "embed/");
-        embed_link = embed_link.slice(0,data.bande_annonce.indexOf("&")-2);
+        if (data.bande_annonce.indexOf("&")!=-1) {
+            embed_link = embed_link.slice(0,data.bande_annonce.indexOf("&")-2);
+        }
         data.bande_annonce_embed = embed_link;
         //Formatage de l'année de sortie
         data.annee_string = data.annee_sortie.toString();

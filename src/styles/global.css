@@ -17,7 +17,7 @@
         @apply font-common
     }
     h2 {
-        @apply flex items-center gap-1 text-2xl font-semibold underline decoration-dom decoration-3
+        @apply flex items-center gap-1 text-3xl font-heading underline decoration-dom decoration-3 tracking-wide
     }
     h3 {
         @apply flex items-center gap-1 text-xl font-medium text-nowrap
