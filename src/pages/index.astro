@@ -1,13 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
 import CardCarousel from "../components/CardCarousel.astro";
+import CardInvite from "../components/CardInvite.astro";
+
+import { allFilms, allInvites } from "../../backend/backend.mjs";
+
+const films = await allFilms();
+let invites = await allInvites();
+invites = invites.slice(0, 4);
 ---
 
-<Layout
-    titre="Ciné Flash 25"
-    photo_URL="https://paolo-vincent.fr/photo/montagne.avif"
->
-    <div class="flex flex-col gap-8">
+<Layout photo_URL="https://paolo-vincent.fr/photo/montagne.avif">
+    <div class="flex flex-col gap-10">
         <div class="flex flex-col gap-4">
             <h2>Le festival</h2>
             <p class="line-clamp-4">
@@ -26,7 +31,50 @@ import CardCarousel from "../components/CardCarousel.astro";
             >
         </div>
         <div class="flex flex-col gap-4">
-            <h2>Le programme</h2>
+            <h3>Une sélection variée</h3>
+            <Carousel>
+                {
+                    films.map((film) => (
+                        <CardCarousel {...film} lien={`/films/${film.id}`} />
+                    ))
+                }
+            </Carousel>
+            <p>
+                Notre équipe vous a préparé un programme au petits oignons pour
+                vous offrir un festival <strong
+                    >enrichissant et mémorable</strong
+                >.
+            </p>
+            <a class="btn self-end" href="/programme">Voir le programme</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3>Des invités magnifiques</h3>
+            <p>
+                Nous sommes ravis d'accueillir pour notre première édition une
+                poignée d'invités de divers horizons pour vous accompagner
+                durant le festival.
+            </p>
+            <div
+                class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center"
+            >
+                {invites.map((invite) => <CardInvite {...invite} />)}
+            </div>
+            <a class="btn self-end" href="/invites">Voir tous les invités</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>La billeterie</h2>
+            <p>
+                Réservez <strong>dès maintenant</strong> vos billets pour l’édition
+                2025 du festival !
+            </p>
+            <p>
+                Choisissez entre <strong>3 tarifs personnalisés</strong> et abordables
+                pour préparer votre week-end fantastique.
+            </p>
+            <a
+                class="btn h-[50px] w-full text-center text-light text-base font-bold bg-[url(https://paolo-vincent.fr/photo/billetterie.avif)] bg-center bg-cover"
+                href="/">Prendre mon billet</a
+            >
         </div>
     </div>
 </Layout>
