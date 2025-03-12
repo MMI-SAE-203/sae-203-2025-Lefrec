@@ -205,6 +205,10 @@ export async function allFilmsFiltre(jour, genre) {
     }
 }
 
+export async function addMessage(data) {
+    const records = pb.collection('CONTACT').create(data)
+}
+
 // export async function allActivitesFiltre(jour) {  
 //     //vérification de quel filtre est actif pour construire le filtre
 //     let filters;
