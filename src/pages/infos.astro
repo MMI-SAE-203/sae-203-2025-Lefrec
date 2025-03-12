@@ -2,6 +2,171 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout titre="Infos pratiques" photo_URL="https://paolo-vincent.fr/photo/maison-ornans.avif">
-    Infos pratiques
+<Layout
+    titre="Infos pratiques"
+    photo_URL="https://paolo-vincent.fr/photo/maison-ornans.avif"
+>
+    <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-4">
+            <h2>Les tarifs</h2>
+            <h3>Pass 1 jour à 15€</h3>
+            <p>
+                Le pass 1 jour permet de profiter d'une <strong
+                    >journée complète</strong
+                > de projections. Parfait pour ceux qui souhaitent vivre l'ambiance
+                du festival en une seule journée.
+            </p>
+            <h3>Pass 3 jour à 30€</h3>
+            <p>
+                Le pass 3 jours permet de profiter de toutes les projections sur
+                les trois jours consécutifs. Idéal pour ceux qui souhaitent
+                plonger <strong>au cœur de l'événement</strong> et découvrir une
+                variété de films tout en partageant des moments conviviaux !
+            </p>
+            <h3>Pass VIP à 50€</h3>
+            <p>
+                Le pass VIP offre un accès <strong>illimité</strong> à toutes les
+                projections tout au long de l'événement. Bénéficiez d'un accès prioritaire,
+                de sièges réservés, et d'invitations à des <strong
+                    >rencontres exclusives</strong
+                > avec les réalisateurs. Profitez d'une expérience immersive et privilégiée,
+                parfaite pour les véritables passionnés de cinéma !
+            </p>
+            <a
+                class="btn h-[50px] w-full text-center text-light text-base font-bold bg-[url(https://paolo-vincent.fr/photo/billetterie.avif)] bg-center bg-cover"
+                href="/">Prendre mon billet</a
+            >
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>Le lieu</h2>
+            <p>
+                Le festival se déroulera en <strong>plein air</strong> dans le cadre
+                de la charmante ville d'<strong>Ornans</strong>.
+                <br />
+                Durant les trois jours du festival toute la petite ville sera transformé
+                en un espace d'accueil.
+            </p>
+            <iframe
+                class="section__map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d43455.1642603133!2d6.112167217810003!3d47.10009464119702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478d7707228f231b%3A0x409ce34b313d780!2sOrnans!5e0!3m2!1sfr!2sfr!4v1734094523191!5m2!1sfr!2sfr"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>Les hébergements</h2>
+            <p>
+                Si vous souhaitez loger sur place pendant l'évènement plusieurs
+                hôtels pourront vous accueillir.
+            </p>
+            <div class="flex flex-col gap-4">
+                <h3>La Table de Gustave</h3>
+                <img
+                    class="w-full h-[200px] object-cover rounded-lg"
+                    src="https://paolo-vincent.fr/photo/table-de-gustave.avif"
+                    alt="Facade du restaurant"
+                    loading="lazy"
+                />
+                <p>
+                    La Table de Gustave, située au cœur d'Ornans, est l'endroit
+                    idéal pour séjourner pendant le Festival Ciné Flash 25. Cet
+                    hôtel <strong>chaleureux</strong> propose des chambres confortables,
+                    une cuisine raffinée mettant en avant les saveurs locales, et
+                    un
+                    <strong>cadre pittoresque</strong> à deux pas des événements
+                    du festival. Venez profiter d’un séjour alliant culture, gastronomie
+                    et convivialité !
+                </p>
+                <a
+                    class="btn_discret self-end"
+                    href="https://www.latabledegustave.fr/">En savoir plus</a
+                >
+            </div>
+            <div class="flex flex-col gap-4">
+                <h3>L'Hôtel de la Vallée</h3>
+                <img
+                    class="w-full h-[200px] object-cover rounded-lg"
+                    src="https://paolo-vincent.fr/photo/hotel-de-la-vallee-ornans.avif"
+                    alt="L'hôtel vu depuis l'autre côté de la rivière"
+                    loading="lazy"
+                />
+                <p>
+                    L’Hôtel de la Vallée, niché au cœur d’Ornans, offre un cadre <strong
+                        >paisible et accueillant</strong
+                    > pour votre séjour pendant le Festival Ciné Flash 25. Avec ses
+                    chambres confortables, son ambiance conviviale et sa proximité
+                    avec les lieux du festival, c’est l’endroit parfait pour allier
+                    détente et immersion culturelle. Profitez d’un séjour agréable
+                    au cœur de la vallée !
+                </p>
+                <a
+                    class="btn_discret self-end"
+                    href="https://www.hotel-ornans.fr/fr">En savoir plus</a
+                >
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>Les transports</h2>
+            <p>
+                Pour ceux qui viennent en <strong>voiture</strong>, Ornans est
+                facilement accessible par les routes principales de la région,
+                avec des parkings situés à proximité des lieux du festival. Si
+                vous préférez les transports en commun, la gare la plus proche
+                est celle de <strong>Besançon-Viotte</strong>, bien desservie
+                par les lignes de train régionales et nationales. Depuis la
+                gare, des bus ou des taxis permettent de rejoindre rapidement
+                Ornans. Pensez également au <strong>covoiturage</strong>, une
+                option économique et conviviale encouragée par le festival, avec
+                des plateformes spécialisées pour organiser vos trajets.
+            </p>
+            <img
+                class="w-full h-[200px] object-cover rounded-lg"
+                src="https://paolo-vincent.fr/photo/gare-besancon-viotte.avif"
+                alt="Facade du restaurant"
+                loading="lazy"
+            />
+            <p>
+                Sur place, le festival propose des <strong
+                    >navettes gratuites</strong
+                > reliant les différents lieux de projection et d’événements. Ces
+                navettes sont idéales pour circuler facilement dans Ornans et profiter
+                pleinement de la programmation. Les amateurs de mobilité douce pourront
+                également se déplacer <strong>à pieds ou en vélo</strong> grâce à
+                l’aménagement de pistes cyclables et de zones de stationnement dédiées.
+                Enfin, pour toute question ou pour planifier vos déplacements, des
+                liens vers les horaires des <strong>transports en commun</strong
+                > et des informations pratiques sont disponibles sur le site officiel
+                du festival. Que vous veniez de loin ou de la région, toutes les
+                options sont pensées pour faciliter votre venue et votre séjour !
+            </p>
+        </div>
+        <div class="flex flex-col gap-8">
+            <h2>FAQ</h2>
+            <h3>Où se garer ?</h3>
+            <p>
+                Des parkings sont disponibles près des lieux principaux. Vous
+                aurez beaucoup d'espace <strong>autour de la ville</strong>
+                pour vous garer enfin de circuler tranquillement à pieds sur le festival.
+            </p>
+            <h3>Y aura-t-il des navettes ?</h3>
+            <p>
+                Oui, des <strong>navettes gratuites</strong> circulent entre les
+                différents sites. Les horaires sont disponibles sur le site.
+            </p>
+            <h3>Comment acheter des billets ?</h3>
+            <p>
+                Les billets peuvent être achetés <strong>en ligne</strong> sur la
+                page billeterie ou <strong>sur place</strong> aux points de vente
+                du festival.
+            </p>
+            <h3>Puis-je venir avec des enfants ?</h3>
+            <p>
+                <strong>Bien sûr !</strong> Des séances adaptées et des activités
+                pour les enfants sont prévues.
+            </p>
+            <h3>Encore des questions ?</h3>
+            <a class="btn self-end" href="/contact">Nous contacter</a>
+        </div>
+    </div>
 </Layout>
