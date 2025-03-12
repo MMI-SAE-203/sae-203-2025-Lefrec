@@ -1,0 +1,13 @@
+---
+const { id, nom , prenom , photo_URL , filmBool, jour, heure } = Astro.props;
+---
+
+<div class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg">
+    <p class="text-sm">
+        {filmBool ? "Ce film vous sera présenté par notre super invité.e ": "Lors de cette activité vous serez accompagné par"}
+        <a href={`/invites/${id}`}> {prenom} {nom}</a>{filmBool ? ` le ${jour} à ${heure}.`: "."}
+    </p>
+    <img class="w-[100px] h-[125px] object-cover rounded-md"
+        src={photo_URL}
+        alt="Photo portrait de l'accompagnateur"/>
+</div>

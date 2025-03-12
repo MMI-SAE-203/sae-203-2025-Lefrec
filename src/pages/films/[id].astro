@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CardFeaturing from "../../components/CardFeaturing.astro";
 import { getFilm, getInvite } from "../../../backend/backend.mjs";
 
 const { id } = Astro.params;
@@ -62,26 +63,7 @@ console.log(invite);
                 ""
             )
         }
-        <div class="flex flex-col gap-4">
-            <h3>Présentateur·rice</h3>
-            <div
-            class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg"
-        >
-            <p class="text-sm">
-                Ce film vous sera présenté par notre super invité.e 
-                <a
-                    href={`/invites/${invite.id}`}
-                    >{invite.prenom} {invite.nom}</a
-                >
-                le {film.jour} à {film.heure}.
-            </p>
-            <img
-                class="w-[100px] h-[125px] object-cover rounded-md"
-                src={invite.photo_URL}
-                alt="Photo portrait de l'accompagnateur"
-            />
-        </div>
-        </div>
+        <CardFeaturing {...invite} jour={film.jour} heure={film.heure} filmBool={true}/>
         <a href="/films" class="btn self-end">Voir les autres films</a>
     </div>
 </Layout>

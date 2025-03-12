@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CardFeaturing from "../../components/CardFeaturing.astro";
 import { getActivite, getInvite } from "../../../backend/backend.mjs";
 
 const { id } = Astro.params;
@@ -33,21 +34,7 @@ console.log(invite);
             <h3>Présentation</h3>
             <p>{activite.description}</p>
         </div>
-        <div
-            class="flex w-fit self-center gap-4 justify-end border-1 rounded-lg p-2 shadow-lg"
-        >
-            <p class="text-sm">
-                Lors de cette activité vous serez accompagné par <a
-                    href={`/invites/${invite.id}`}
-                    >{invite.prenom} {invite.nom}</a
-                >
-            </p>
-            <img
-                class="w-[100px] h-[125px] object-cover rounded-md"
-                src={invite.photo_URL}
-                alt="Photo portrait de l'accompagnateur"
-            />
-        </div>
+        <CardFeaturing {...invite} filmBool={false}/>
         <a href="/programme" class="btn self-end">Voir tout le programme</a>
     </div>
 </Layout>

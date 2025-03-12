@@ -178,6 +178,7 @@ export async function allFilmsFiltre(jour, genre) {
     //vérification de quel filtre est actif pour construire le filtre
     let filters = [];
     if (jour) {
+        //défini le jour suivant
         let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1);
         filters.push(`date_heure < "${joursuivant}" && date_heure > "${jour}"`);
       }
@@ -193,6 +194,8 @@ export async function allFilmsFiltre(jour, genre) {
             film.affiche_URL = pb.files.getURL(film, film.affiche);
             film.photo_URL = pb.files.getURL(film, film.photo);
             film.annee_string = film.annee_sortie.toString();
+            film.jour = formatDate(film.date_heure);
+            film.heure = formatHeure(film.date_heure);
             return film;
         })
         return data;
@@ -202,7 +205,32 @@ export async function allFilmsFiltre(jour, genre) {
     }
 }
 
-function formatDate(dateStr) {
+// export async function allActivitesFiltre(jour) {  
+//     //vérification de quel filtre est actif pour construire le filtre
+//     let filters;
+//     if (jour) {
+//         //défini le jour suivant
+//         let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1);
+//         filters = (`date_heure < "${joursuivant}" && date_heure > "${jour}"`);
+//       }
+//     try {
+//         let data = await pb.collection('ACTIVITE').getFullList(
+//             { sort: "date_heure" , filter: filters}
+//         );
+//         data = data.map((activite) => {
+//             activite.photo_URL = pb.files.getURL(activite, activite.photo);
+//             activite.jour = formatDate(activite.date_heure);
+//             activite.heure = formatHeure(activite.date_heure);
+//             return activite;
+//         })
+//         return data;
+//     } catch (error) {
+//         console.log('Une erreur est survenue en lisant la liste des activites', error);
+//         return null;
+//     }
+// }
+
+export function formatDate(dateStr) {
     const date = new Date(dateStr.replace(" ", "T"));
     return new Intl.DateTimeFormat("fr-FR", {
         weekday: "long",
