@@ -1,0 +1,17 @@
+---
+const { id, prenom, nom, photo_URL, role} = Astro.props;
+---
+
+<div class="flex w-fit h-fit text-center border-1 rounded-md p-2">
+    <a class="flex items-center flex-col w-[125px]" href={`/invites/${id}`}>
+        <img
+            class="w-full h-[125px] object-cover"
+            src={photo_URL}
+            alt={"Photo portrait de "+prenom+" "+nom}
+        />
+        <p class="font-heading font-light line-clamp-1">{prenom+" "+nom}</p>
+        <div class="flex gap-4 text-sm font-medium">
+            <p>{role}</p>
+        </div>
+    </a>
+</div>
