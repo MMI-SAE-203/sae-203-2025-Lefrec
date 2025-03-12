@@ -1,0 +1,21 @@
+---
+const {titre, photo_URL, jour, heure, lien} = Astro.props;
+---
+
+<a
+    href={lien}
+    class="flex justify-between border-1 rounded-lg p-2 hover:border-ton"
+>
+    <div class="flex w-fit h-fit gap-2">
+        <img
+            class="w-[75px] h-[100px] object-cover rounded-md"
+            src={photo_URL}
+            alt={"Affiche du film " + titre}
+        />
+        <p class="font-heading text-xl font-light self-center">{titre}</p>
+    </div>
+    <div class="flex flex-col gap-4 justify-center font-medium text-sm items-end text-end">
+        <p>{jour}</p>
+        <p>{heure}</p>
+    </div>
+</a>

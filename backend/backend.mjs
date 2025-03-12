@@ -174,6 +174,34 @@ export async function getActivitesAndFilmsById(id) {
     }
 }
 
+export async function allFilmsFiltre(jour, genre) {  
+    //vérification de quel filtre est actif pour construire le filtre
+    let filters = [];
+    if (jour) {
+        let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1);
+        filters.push(`date_heure < "${joursuivant}" && date_heure > "${jour}"`);
+      }
+    if (genre) {
+        filters.push(`genre~"${genre}"`);
+      }
+    const filterString = filters.join(" && ");
+    try {
+        let data = await pb.collection('FILM').getFullList(
+            { sort: "date_heure" , filter: filterString}
+        );
+        data = data.map((film) => {
+            film.affiche_URL = pb.files.getURL(film, film.affiche);
+            film.photo_URL = pb.files.getURL(film, film.photo);
+            film.annee_string = film.annee_sortie.toString();
+            return film;
+        })
+        return data;
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant la liste des films', error);
+        return null;
+    }
+}
+
 function formatDate(dateStr) {
     const date = new Date(dateStr.replace(" ", "T"));
     return new Intl.DateTimeFormat("fr-FR", {

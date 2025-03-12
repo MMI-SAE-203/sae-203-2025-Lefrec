@@ -1,11 +1,11 @@
-import {addEntry, allActivites, allFilms, allInvites, getActivite, getActivitesByInviteId, getActivitesByInviteNom, getFilm, getInvite} from "./backend.mjs"
+import {addEntry, allActivites, allFilms, allFilmsFiltre, allInvites, getActivite, getActivitesByInviteId, getActivitesByInviteNom, getFilm, getInvite} from "./backend.mjs"
 
-try {
-    const records = await allFilms();
-    console.log(JSON.stringify(records,null,2));
-    }catch(e){
-    console.error(e)
-}
+// try {
+//     const records = await allFilms();
+//     console.log(JSON.stringify(records,null,2));
+//     }catch(e){
+//     console.error(e)
+// }
 
 // try {
 //     const records = await allActivites();
@@ -67,3 +67,10 @@ try {
 //     }catch(e){
 //     console.error(e)
 // }
+
+try {
+    const records = await allFilmsFiltre();
+    console.log(JSON.stringify(records,null,2));
+    }catch(e){
+    console.error(e)
+}

@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardProgramme from "../components/CardProgramme.astro";
+import { getFilm } from "../../backend/backend.mjs";
+
+const film = await getFilm("pq4b153f0n2946y");
+---
+
+<Layout titre="Le programme" photo_URL="https://paolo-vincent.fr/photo/onecalendar-1024x683.avif">
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+            <h2>Projections</h2>
+            <CardProgramme {...film}/>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h2>Activités</h2>
+        </div>
+    </div>
+</Layout>
