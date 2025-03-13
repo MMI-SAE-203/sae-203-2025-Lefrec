@@ -3,10 +3,14 @@ const {titre, photo_URL, infos} = Astro.props;
 ---
 
 <div class="relative flex -mx-8 -mt-8 mb-8 h-fit text-light">
-    <h1 class="absolute self-center text-center w-full px-5 font-heading text-4xl z-1">{titre}</h1>
-    {photo_URL ? <img class="object-cover h-[300px] w-full brightness-50" src={photo_URL} alt="Image tirée du film"> : <div class="bg-dark h-[200px] w-full"></div>}
+    <h1 class="absolute self-center text-center w-full px-5 font-heading text-4xl z-1
+    lg:text-6xl">
+        {titre}
+    </h1>
+    {photo_URL ? <img class="object-cover h-[300px] w-full brightness-50 lg:h-[500px]" src={photo_URL} alt="Image tirée du film"> : <div class="bg-dark h-[200px] w-full lg:h-[300px]"></div>}
     {infos ? 
-        <div class="absolute flex w-full self-end pb-10 justify-center gap-8 z-1">
+        <div class="absolute flex w-full self-end pb-10 justify-center gap-8 z-1
+        lg:text-xl lg:gap-20 lg:pb-24">
             {infos.map((info) => 
                 <p class="font-semibold">{info}</p>
             )}
