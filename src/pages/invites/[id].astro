@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getInvite, getActivitesAndFilmsById } from "../../../backend/backend.mjs";
+import Carousel from "../../components/Carousel.astro";
 import CardCarousel from "../../components/CardCarousel.astro";
 
 const { id } = Astro.params;
@@ -33,9 +34,9 @@ console.log(events);
         </section>
         <section class="section">
             <h3>Films et activités</h3>
-            <div class="carousel">
+            <Carousel unique={events.length == 1 ? true : false}>
                 {events.map((event) => <CardCarousel {...event} unique={events.length == 1 ? true : false} lien={event.collectionName === "FILM" ? `/films/${event.id}` : `/activites/${event.id}`}/>)}
-            </div>
+            </Carousel>
         </section>
         <a href="/invites" class="btn self-end">Voir les autres invités</a>
 </Layout>

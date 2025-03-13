@@ -38,9 +38,9 @@
         @apply border-2 border-ton py-2 px-4 gap-2 rounded-md uppercase font-semibold text-xs text-ton w-fit hover:text-light hover:bg-ton no-underline active:text-light
     }
     .section {
-        @apply flex flex-col gap-6
+        @apply flex flex-col gap-6 col-span-2
     }
     .carousel {
-        @apply flex overflow-visible overflow-x-auto gap-8 px-8 py-0 -mx-8
+        @apply flex overflow-visible overflow-x-auto gap-8 -mx-8 snap-x px-8
     }
 }

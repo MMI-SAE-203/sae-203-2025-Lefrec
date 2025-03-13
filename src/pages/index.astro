@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Carousel from "../components/Carousel.astro";
 import CardCarousel from "../components/CardCarousel.astro";
 import CardInvite from "../components/CardInvite.astro";
 
@@ -11,7 +12,7 @@ invites = invites.slice(0, 4);
 ---
 
 <Layout titre="Ciné Flash 25" photo_URL="https://paolo-vincent.fr/photo/montagne.avif">
-        <section class="section">
+        <section class="section col-span-6">
             <h2>Le festival</h2>
             <p class="line-clamp-4">
                 Le festival <strong>CinéFlash 25</strong> est un événement de courts
@@ -28,15 +29,15 @@ invites = invites.slice(0, 4);
                 >En apprendre plus sur le festival</a
             >
         </section>
-        <section class="section">
+        <section class="section col-span-6">
             <h3>Une sélection variée</h3>
-            <div class="carousel">
+            <Carousel unique={films.length == 1 ? true : false}>
                 {
                     films.map((film) => (
                         <CardCarousel {...film} lien={`/films/${film.id}`} />
                     ))
                 }
-            </div>
+            </Carousel>
             <p>
                 Notre équipe vous a préparé un programme au petits oignons pour
                 vous offrir un festival <strong
@@ -45,7 +46,7 @@ invites = invites.slice(0, 4);
             </p>
             <a class="btn self-end" href="/programme">Voir le programme</a>
         </section>
-        <section class="section">
+        <section class="section col-span-3">
             <h3>Des invités magnifiques</h3>
             <p>
                 Nous sommes ravis d'accueillir pour notre première édition une
@@ -59,7 +60,7 @@ invites = invites.slice(0, 4);
             </div>
             <a class="btn self-end" href="/invites">Voir tous les invités</a>
         </section>
-        <section class="section">
+        <section class="section col-span-3">
             <h2>La billeterie</h2>
             <p>
                 Réservez <strong>dès maintenant</strong> vos billets pour l’édition
