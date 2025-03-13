@@ -11,6 +11,7 @@ const {titre, photo_URL, jour, heure, lien} = Astro.props;
             class="w-[75px] h-[100px] object-cover rounded-md"
             src={photo_URL}
             alt={"Affiche du film " + titre}
+            loading="lazy"
         />
         <p class="font-heading text-xl font-light self-center">{titre}</p>
     </div>

@@ -15,7 +15,8 @@ console.log(events);
             <img
                 class="w-[150px] h-[150px] object-cover"
                 src={invite.photo_URL}
-                alt="Affiche du film"
+                alt={"Photo portrait de "+invite.prenom + " " + invite.nom}
+                loading="lazy"
             />
             <div class="flex flex-col gap-2">
                 <p class="font-heading text-xl">{invite.prenom} {invite.nom}</p>

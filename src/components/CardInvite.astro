@@ -8,6 +8,7 @@ const { id, prenom, nom, photo_URL, role} = Astro.props;
             class="w-full h-[125px] object-cover"
             src={photo_URL}
             alt={"Photo portrait de "+prenom+" "+nom}
+            loading="lazy"
         />
         <p class="font-heading font-light line-clamp-1">{prenom+" "+nom}</p>
         <div class="flex gap-4 text-sm font-medium">

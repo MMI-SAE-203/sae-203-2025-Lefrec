@@ -9,5 +9,6 @@ const { id, nom , prenom , photo_URL , filmBool, jour, heure } = Astro.props;
     </p>
     <img class="w-[100px] h-[125px] object-cover rounded-md"
         src={photo_URL}
-        alt="Photo portrait de l'accompagnateur"/>
+        alt="Photo portrait de l'accompagnateur"
+        loading="lazy"/>
 </article>

@@ -8,6 +8,7 @@ const { id, titre, affiche_URL, annee_string, duree} = Astro.props;
             class="w-full h-[175px] object-cover"
             src={affiche_URL}
             alt={"Affiche du film " + titre}
+            loading="lazy"
         />
         <p class="font-heading font-light line-clamp-1">{titre}</p>
         <div class="flex gap-4 text-sm font-medium">
