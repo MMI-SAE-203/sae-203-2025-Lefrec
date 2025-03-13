@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://cine-flash-25.paolo-vincent.fr/:443');
+const pb = new PocketBase('https://cine-flash-25.paolo-vincent.fr/_/:443');
 
 export async function allFilms() {
     try {
