@@ -13,8 +13,8 @@
 }
 
 @layer base{
-    * {
-        @apply font-common
+    html {
+        @apply font-common text-sm lg:text-base
     }
     h2 {
         @apply flex items-center gap-1 text-3xl font-heading underline decoration-dom decoration-3 tracking-wide

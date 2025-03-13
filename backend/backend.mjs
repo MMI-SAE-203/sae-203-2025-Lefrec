@@ -179,7 +179,7 @@ export async function allFilmsFiltre(jour, genre) {
     let filters = [];
     if (jour) {
         //défini le jour suivant
-        let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1);
+        let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1 <= 10 ? "0"+parseInt(jour.slice(-2))+1:parseInt(jour.slice(-2))+1);
         filters.push(`date_heure < "${joursuivant}" && date_heure > "${jour}"`);
       }
     if (genre) {

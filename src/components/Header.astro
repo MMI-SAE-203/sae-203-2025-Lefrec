@@ -5,13 +5,14 @@ import Burger_cross from "../assets/icons/burger-icon-cross.svg";
 ---
 
 <header
-    x-data="{ open : false }"
+    x-data="{ open : window.innerWidth > 1024 }"
+    x-init="window.matchMedia('(max-width: 1024px)').addEventListener('change', e => open = !e.matches)"
     class="fixed inset-0 flex w-full h-16 justify-between items-center px-3 py-1 bg-light z-2"
 >
     <a href="/">
         <Logo />
     </a>
-    <button @click="open = !open" aria-controls="menu" :aria-expanded="open">
+    <button class="lg:hidden" @click="open = !open" aria-controls="menu" :aria-expanded="open">
         <Burger_bars x-show="!open" />
         <Burger_cross x-show="open" />
     </button>
@@ -20,9 +21,11 @@ import Burger_cross from "../assets/icons/burger-icon-cross.svg";
         :aria-expanded="open"
         :aria-hidden="!open"
         id="menu"
-        class="flex-1 px-12 py-16 flex justify-between mt-16 flex-col fixed z-10 inset-0 bg-linear-to-b from-light to-ton visible opacity-100"
+        class="px-12 py-16 flex justify-between mt-16 flex-col fixed z-10 inset-0 bg-linear-to-b from-light to-ton
+        lg:relative lg:bg-none lg:p-0 lg:m-0 lg:w-full"
     >
-        <ul class="flex flex-col gap-8 *:*:font-heading *:*:font-medium *:*:no-underline text-3xl tracking-wide">
+        <ul class="flex flex-col gap-8 *:*:font-heading *:*:font-medium *:*:no-underline text-3xl tracking-wide
+        lg:flex-row lg:*:*:text-xl lg:*:hover:underline lg:*:hover:decoration-ton">
             <li>
                 <a href="/festival">Le festival</a>
             </li>
