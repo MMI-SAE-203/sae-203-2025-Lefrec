@@ -1,7 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Hero from '../components/Hero.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
 import "../styles/global.css";
 
 const { titre, photo_URL, infos } = Astro.props;
@@ -18,8 +18,10 @@ const { titre, photo_URL, infos } = Astro.props;
     <body>
         <Header />
         <main class="p-8 mt-16 bg-light-gray">
-            <Hero titre={titre} photo_URL={photo_URL} infos={infos}/>
-            <slot />
+            <Hero titre={titre} photo_URL={photo_URL} infos={infos} />
+            <div class="flex flex-col gap-10">
+                <slot />
+            </div>
         </main>
         <Footer />
     </body>

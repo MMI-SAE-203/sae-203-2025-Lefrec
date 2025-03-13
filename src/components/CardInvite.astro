@@ -2,7 +2,7 @@
 const { id, prenom, nom, photo_URL, role} = Astro.props;
 ---
 
-<div class="flex w-fit h-fit text-center border-1 rounded-md p-2">
+<article class="flex w-fit h-fit text-center border-1 rounded-md p-2">
     <a class="flex items-center flex-col w-[125px]" href={`/invites/${id}`}>
         <img
             class="w-full h-[125px] object-cover"
@@ -14,4 +14,4 @@ const { id, prenom, nom, photo_URL, role} = Astro.props;
             <p>{role}</p>
         </div>
     </a>
-</div>
+</article>

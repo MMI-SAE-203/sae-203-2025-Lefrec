@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getInvite, getActivitesAndFilmsById } from "../../../backend/backend.mjs";
-import Carousel from "../../components/Carousel.astro";
 import CardCarousel from "../../components/CardCarousel.astro";
 
 const { id } = Astro.params;
@@ -12,8 +11,7 @@ console.log(events);
 ---
 
 <Layout titre={invite.prenom + " " + invite.nom} infos={[invite.role]}>
-    <div class="flex flex-col gap-8">
-        <div class="flex gap-4">
+        <section class="section flex-row">
             <img
                 class="w-[150px] h-[150px] object-cover"
                 src={invite.photo_URL}
@@ -27,17 +25,16 @@ console.log(events);
                     festival !
                 </p>
             </div>
-        </div>
-        <div class="flex flex-col gap-4">
+        </section>
+        <section class="section">
             <h3>Présentation</h3>
             <p>{invite.biographie}</p>
-        </div>
-        <div class="flex static flex-col">
+        </section>
+        <section class="section">
             <h3>Films et activités</h3>
-            <Carousel>
+            <div class="carousel">
                 {events.map((event) => <CardCarousel {...event} unique={events.length == 1 ? true : false} lien={event.collectionName === "FILM" ? `/films/${event.id}` : `/activites/${event.id}`}/>)}
-            </Carousel>
-        </div>
+            </div>
+        </section>
         <a href="/invites" class="btn self-end">Voir les autres invités</a>
-    </div>
 </Layout>

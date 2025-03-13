@@ -6,8 +6,7 @@ import Layout from "../layouts/Layout.astro";
     titre="Infos pratiques"
     photo_URL="https://paolo-vincent.fr/photo/maison-ornans.avif"
 >
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-4">
+        <section class="section">
             <h2>Les tarifs</h2>
             <h3>Pass 1 jour à 15€</h3>
             <p>
@@ -36,8 +35,8 @@ import Layout from "../layouts/Layout.astro";
                 class="btn h-[50px] w-full text-center text-light text-base font-bold bg-[url(https://paolo-vincent.fr/photo/billetterie.avif)] bg-center bg-cover"
                 href="/">Prendre mon billet</a
             >
-        </div>
-        <div class="flex flex-col gap-4">
+        </section>
+        <section class="section">
             <h2>Le lieu</h2>
             <p>
                 Le festival se déroulera en <strong>plein air</strong> dans le cadre
@@ -53,14 +52,14 @@ import Layout from "../layouts/Layout.astro";
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="flex flex-col gap-4">
+        </section>
+        <section class="section">
             <h2>Les hébergements</h2>
             <p>
                 Si vous souhaitez loger sur place pendant l'évènement plusieurs
                 hôtels pourront vous accueillir.
             </p>
-            <div class="flex flex-col gap-4">
+            <article class="section">
                 <h3>La Table de Gustave</h3>
                 <img
                     class="w-full h-[200px] object-cover rounded-lg"
@@ -82,8 +81,8 @@ import Layout from "../layouts/Layout.astro";
                     class="btn_discret self-end"
                     href="https://www.latabledegustave.fr/">En savoir plus</a
                 >
-            </div>
-            <div class="flex flex-col gap-4">
+            </article>
+            <secarticletion class="section">
                 <h3>L'Hôtel de la Vallée</h3>
                 <img
                     class="w-full h-[200px] object-cover rounded-lg"
@@ -104,9 +103,9 @@ import Layout from "../layouts/Layout.astro";
                     class="btn_discret self-end"
                     href="https://www.hotel-ornans.fr/fr">En savoir plus</a
                 >
-            </div>
-        </div>
-        <div class="flex flex-col gap-4">
+            </article>
+        </section>
+        <section class="section">
             <h2>Les transports</h2>
             <p>
                 Pour ceux qui viennent en <strong>voiture</strong>, Ornans est
@@ -140,8 +139,8 @@ import Layout from "../layouts/Layout.astro";
                 du festival. Que vous veniez de loin ou de la région, toutes les
                 options sont pensées pour faciliter votre venue et votre séjour !
             </p>
-        </div>
-        <div class="flex flex-col gap-8">
+        </section>
+        <section class="section">
             <h2>FAQ</h2>
             <h3>Où se garer ?</h3>
             <p>
@@ -167,6 +166,5 @@ import Layout from "../layouts/Layout.astro";
             </p>
             <h3>Encore des questions ?</h3>
             <a class="btn self-end" href="/contact">Nous contacter</a>
-        </div>
-    </div>
+        </section>
 </Layout>

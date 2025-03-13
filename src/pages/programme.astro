@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CardProgramme from "../components/CardProgramme.astro";
-import Carousel from "../components/Carousel.astro";
 import CardCarousel from "../components/CardCarousel.astro";
 import {
     allFilmsFiltre,
@@ -35,8 +34,7 @@ if (Astro.request.method === "POST") {
     titre="Le programme"
     photo_URL="https://paolo-vincent.fr/photo/onecalendar-1024x683.avif"
 >
-    <div class="flex flex-col gap-8">
-        <div class="flex flex-col gap-4">
+    <section class="section">
             <h2>Projections</h2>
             <div class="flex flex-col gap-2 border-2 border-ton rounded-lg p-2">
                 <p>Filter les séances</p>
@@ -80,8 +78,8 @@ if (Astro.request.method === "POST") {
                 }
             </div>
             <p class="text-center">{message_film}</p>
-        </div>
-        <div class="flex flex-col gap-4">
+    </section>
+    <section class="section">
             <h2>Activités</h2>
             <p>
                 Tout au long du festival, des activités diverses vous serons
@@ -89,7 +87,7 @@ if (Astro.request.method === "POST") {
                 ces moments de partage vous permettrons de plongez de l'univers
                 de cinéma.
             </p>
-            <Carousel>
+            <div class="carousel">
                 {
                     activites.map((activite) => (
                         <CardCarousel
@@ -99,9 +97,9 @@ if (Astro.request.method === "POST") {
                         />
                     ))
                 }
-            </Carousel>
-        </div>
-        <div class="flex flex-col gap-4">
+            </div>
+    </section>
+    <section class="section">
             <h3>Comment s'organiser ?</h3>
             <p>
                 Si vous avez des questions sur la programmation ou
@@ -114,6 +112,5 @@ if (Astro.request.method === "POST") {
                 <a class="btn" href="/contact">Nous contacter</a>
                 <a class="btn" href="/infos">Inofs pratiques</a>
             </div>
-        </div>
-    </div>
+    </section>
 </Layout>

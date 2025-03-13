@@ -8,18 +8,21 @@ console.log(invites);
 ---
 
 <Layout titre="Les invités">
-    <p class="mb-4">
-        Pour cette première édition, <strong>CinéFlash 25</strong> a l'honneur d'accueillir des
-        invités exceptionnels issus de divers horizons du monde
-        cinématographique. <strong>Réalisateurs, acteurs, scénaristes et personnalités
-        locales</strong> seront présents pour enrichir le festival par leurs expériences,
-        leurs talents et leur passion du cinéma.
-    </p>
-    <h3>Édition 2025</h3>
-    <div
-        class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center"
-    >
-        {invites.map((invite) => <CardInvite {...invite} />)}
+    <div class="section">
+        <p class="mb-4">
+            Pour cette première édition, <strong>CinéFlash 25</strong> a l'honneur
+            d'accueillir des invités exceptionnels issus de divers horizons du monde
+            cinématographique. <strong
+                >Réalisateurs, acteurs, scénaristes et personnalités locales</strong
+            > seront présents pour enrichir le festival par leurs expériences, leurs
+            talents et leur passion du cinéma.
+        </p>
+        <h3>Édition 2025</h3>
+        <div
+            class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center"
+        >
+            {invites.map((invite) => <CardInvite {...invite} />)}
+        </div>
+        <div class="w-full h-[2px] bg-ton"></div>
     </div>
-    <div class="w-full h-[2px] bg-ton"></div>
 </Layout>

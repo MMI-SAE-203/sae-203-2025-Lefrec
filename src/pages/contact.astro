@@ -15,8 +15,7 @@ if (Astro.request.method === "POST") {
     titre="Nous contacter"
     photo_URL="https://paolo-vincent.fr/photo/telephone-fixe.avif"
 >
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-4">
+    <section class="section">
             <h2>On vous écoute</h2>
             <p>
                 N'hésitez pas à nous contacter en cas de question, de doute, de
@@ -36,8 +35,8 @@ if (Astro.request.method === "POST") {
             <p>
                 Enfin vous pouvez nous joindre directement par le <strong>formulaire de contact</strong> ci-dessous.
             </p>
-        </div>
-        <div class="flex flex-col gap-4">
+    </section>
+    <section class="section">
             <h3>Formulaire de contact</h3>
             {Astro.url.searchParams.get("success") ? <p class="text-center">Message envoyé avec succès !</p> : ""}
             <form class="flex flex-col gap-4"
@@ -47,6 +46,5 @@ if (Astro.request.method === "POST") {
                 <textarea name="message" required rows="5" placeholder="Votre message" class="border p-2 rounded-md w-full"/>
                 <input type="submit" value="Envoyer le formulaire" class="btn w-full text-base" />
             </form>
-        </div>
-    </div>
+    </section>
 </Layout>

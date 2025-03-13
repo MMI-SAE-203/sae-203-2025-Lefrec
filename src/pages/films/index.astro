@@ -8,9 +8,13 @@ console.log(films);
 ---
 
 <Layout titre="Films à l'affiche" photo_URL={films[0].photo_URL}>
-    <h3>Édition 2025</h3>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center">
-        {films.map((film) => <CardFilm {...film} />)}
-    </div>
-    <div class="w-full h-[2px] bg-ton"></div>
+    <section class="section">
+        <h3>Édition 2025</h3>
+        <div
+            class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 my-8 place-items-center"
+        >
+            {films.map((film) => <CardFilm {...film} />)}
+        </div>
+        <div class="w-full h-[2px] bg-ton"></div>
+    </section>
 </Layout>

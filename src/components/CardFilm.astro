@@ -2,7 +2,7 @@
 const { id, titre, affiche_URL, annee_string, duree} = Astro.props;
 ---
 
-<div class="flex w-fit h-fit text-center border-1 rounded-md p-2">
+<article class="flex w-fit h-fit text-center border-1 rounded-md p-2">
     <a class="flex items-center flex-col w-[125px]" href={`/films/${id}`}>
         <img
             class="w-full h-[175px] object-cover"
@@ -15,4 +15,4 @@ const { id, titre, affiche_URL, annee_string, duree} = Astro.props;
             <p>{duree}min</p>
         </div>
     </a>
-</div>
+</article>

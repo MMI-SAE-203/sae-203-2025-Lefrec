@@ -15,8 +15,7 @@ console.log(invite);
     photo_URL={film.photo_URL}
     infos={[film.annee_string, film.duree + " min", film.genre[0]]}
 >
-    <div class="flex flex-col gap-8">
-        <div class="flex gap-4">
+        <section class="section flex-row">
             <img
                 class="w-[125px] h-[175px] object-cover"
                 src={film.affiche_URL}
@@ -41,14 +40,14 @@ console.log(invite);
                     )
                 }
             </div>
-        </div>
-        <div class="flex flex-col gap-4">
+        </section>
+        <section class="section">
             <h3>Synopsis</h3>
             <p>{film.description}</p>
-        </div>
+        </section>
         {
             film.bande_annonce_embed ? (
-                <div class="flex flex-col gap-4">
+                <section class="section">
                     <h3>Bande-annonce</h3>
                     <iframe
                         width="full"
@@ -58,12 +57,11 @@ console.log(invite);
                         referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen
                     />
-                </div>
+                </section>
             ) : (
                 ""
             )
         }
         <CardFeaturing {...invite} jour={film.jour} heure={film.heure} filmBool={true}/>
         <a href="/films" class="btn self-end">Voir les autres films</a>
-    </div>
 </Layout>
