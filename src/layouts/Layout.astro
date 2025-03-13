@@ -13,14 +13,22 @@ const { titre, photo_URL, infos } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <title>{titre ? `${titre} — Ciné Flash 25` : "Ciné Flash 25"}</title>
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Ciné Flash 25" />
+        <link rel="manifest" href="/site.webmanifest" />
     </head>
 
     <body>
         <Header />
         <main class="p-8 mt-16 bg-light-gray">
             <Hero titre={titre} photo_URL={photo_URL} infos={infos} />
-            <div class="flex flex-col gap-10
-            lg:grid lg:grid-cols-[repeat(6,100px)] lg:gap-12 lg:mx-auto lg:w-fit lg:max-w-screen-xl lg:my-12 lg:justify-self-center">
+            <div
+                class="flex flex-col gap-10
+            lg:grid lg:grid-cols-[repeat(6,100px)] lg:gap-12 lg:mx-auto lg:w-fit lg:max-w-screen-xl lg:my-12 lg:justify-self-center"
+            >
                 <slot />
             </div>
         </main>
