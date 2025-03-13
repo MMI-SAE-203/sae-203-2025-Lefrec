@@ -209,30 +209,6 @@ export async function addMessage(data) {
     const records = pb.collection('CONTACT').create(data)
 }
 
-// export async function allActivitesFiltre(jour) {  
-//     //vérification de quel filtre est actif pour construire le filtre
-//     let filters;
-//     if (jour) {
-//         //défini le jour suivant
-//         let joursuivant = jour.slice(0,-2)+(parseInt(jour.slice(-2))+1);
-//         filters = (`date_heure < "${joursuivant}" && date_heure > "${jour}"`);
-//       }
-//     try {
-//         let data = await pb.collection('ACTIVITE').getFullList(
-//             { sort: "date_heure" , filter: filters}
-//         );
-//         data = data.map((activite) => {
-//             activite.photo_URL = pb.files.getURL(activite, activite.photo);
-//             activite.jour = formatDate(activite.date_heure);
-//             activite.heure = formatHeure(activite.date_heure);
-//             return activite;
-//         })
-//         return data;
-//     } catch (error) {
-//         console.log('Une erreur est survenue en lisant la liste des activites', error);
-//         return null;
-//     }
-// }
 
 export function formatDate(dateStr) {
     const date = new Date(dateStr.replace(" ", "T"));
