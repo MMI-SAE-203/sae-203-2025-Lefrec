@@ -6,14 +6,14 @@ import Youtube from "../assets/icons/youtube.svg";
 ---
 
 <footer class="bg-dark p-12 text-light flex flex-col gap-8 
-">
+lg:grid lg:grid-cols-4 lg:grid-rows-[50px_auto] lg:gap-x-12 lg:gap-y-6 lg:p-16">
     <div class="flex justify-start">
         <a href="/">
             <Logo_light />
         </a>
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 lg:col-span-1 lg:row-start-2 lg:row-span-1">
         <h4 class="font-normal">Contact</h4>
         <ul class="*:text-xs *:font-light pl-4">
             <li><p>22 Rue Pierre D'ornans</p></li>
@@ -23,7 +23,7 @@ import Youtube from "../assets/icons/youtube.svg";
         </ul>
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 lg:col-span-2 lg:row-start-2 lg:row-span-1">
         <h4 class="font-normal">Mentions légales</h4>
         <p class="text-xs font-light pl-4">
             CinéFlash 25 est l'éditeur du site, accessible à l'adresse
@@ -34,7 +34,7 @@ import Youtube from "../assets/icons/youtube.svg";
         </p>
     </div>
 
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 lg:col-span-1  lg:row-start-2 lg:row-span-1">
         <h4 class="font-normal">Nous suivre</h4>
         <ul class="flex gap-6 pl-4" aria-label="Réseaux sociaux">
             <li>
