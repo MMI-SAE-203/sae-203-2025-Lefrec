@@ -2,10 +2,10 @@
 const { id, prenom, nom, photo_URL, role} = Astro.props;
 ---
 
-<article class="flex w-fit h-fit text-center border-1 rounded-md p-2">
-    <a class="flex items-center flex-col w-[125px]" href={`/invites/${id}`}>
+<article class="flex w-full text-center border-1 hover:border-ton rounded-lg p-2 justify-self-center justify-center">
+    <a class="flex items-center flex-col no-underline w-full lg:w-[200px]" href={`/invites/${id}`}>
         <img
-            class="w-full h-[125px] object-cover"
+            class="w-full h-[150px] object-cover rounded-md lg:h-[200px]"
             src={photo_URL}
             alt={"Photo portrait de "+prenom+" "+nom}
             loading="lazy"

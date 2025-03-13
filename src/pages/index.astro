@@ -8,7 +8,7 @@ import { allFilms, allInvites } from "../../backend/backend.mjs";
 
 const films = await allFilms();
 let invites = await allInvites();
-invites = invites.slice(0, 4);
+invites = invites.slice(0, 3);
 ---
 
 <Layout titre="Ciné Flash 25" photo_URL="https://paolo-vincent.fr/photo/montagne.avif">
@@ -46,7 +46,7 @@ invites = invites.slice(0, 4);
             </p>
             <a class="btn self-end" href="/programme">Voir le programme</a>
         </section>
-        <section class="section col-span-3">
+        <section class="section col-span-4">
             <h3>Des invités magnifiques</h3>
             <p>
                 Nous sommes ravis d'accueillir pour notre première édition une
@@ -54,13 +54,13 @@ invites = invites.slice(0, 4);
                 durant le festival.
             </p>
             <div
-                class="grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4 place-items-center"
+                class="grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4 my-8"
             >
                 {invites.map((invite) => <CardInvite {...invite} />)}
             </div>
             <a class="btn self-end" href="/invites">Voir tous les invités</a>
         </section>
-        <section class="section col-span-3">
+        <section class="section col-span-2">
             <h2>La billeterie</h2>
             <p>
                 Réservez <strong>dès maintenant</strong> vos billets pour l’édition
