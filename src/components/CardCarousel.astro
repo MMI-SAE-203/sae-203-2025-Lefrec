@@ -2,7 +2,7 @@
 const { titre, photo_URL, description, lien, unique } = Astro.props;
 ---
 
-<artcile class="flex flex-col gap-2 w-fit border p-2 rounded-lg snap-center">
+<article class="flex flex-col gap-2 w-fit border p-2 rounded-lg snap-center">
     <a class={unique? "w-full lg:w-[400px]" : 'w-[300px] lg:w-[400px]'} href={lien}>
         <img class="w-full h-[150px] object-cover rounded-md
         lg:h-[200px]" 
