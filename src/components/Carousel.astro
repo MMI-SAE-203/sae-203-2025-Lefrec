@@ -4,7 +4,7 @@ const {unique} =Astro.props;
 console.log(unique)
 ---
 
-<div class="carousel">
+<div class=`carousel ${unique? 'overflow-hidden': ''}` >
     <slot />
 </div>
 <div x-data=`{ 

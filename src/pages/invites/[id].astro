@@ -12,9 +12,9 @@ console.log(events);
 ---
 
 <Layout titre={invite.prenom + " " + invite.nom} infos={[invite.role]}>
-        <section class="section flex-row">
+        <section class="section flex-row lg:col-span-6">
             <img
-                class="w-[150px] h-[150px] object-cover"
+                class="w-[150px] h-[150px] object-cover lg:w-[200px] lg:h-[200px]"
                 src={invite.photo_URL}
                 alt={"Photo portrait de "+invite.prenom + " " + invite.nom}
                 loading="lazy"
@@ -28,15 +28,15 @@ console.log(events);
                 </p>
             </div>
         </section>
-        <section class="section">
+        <section class="section lg:col-span-3">
             <h3>Présentation</h3>
             <p>{invite.biographie}</p>
         </section>
-        <section class="section">
+        <section class="section lg:col-span-3">
             <h3>Films et activités</h3>
             <Carousel unique={events.length == 1 ? true : false}>
                 {events.map((event) => <CardCarousel {...event} unique={events.length == 1 ? true : false} lien={event.collectionName === "FILM" ? `/films/${event.id}` : `/activites/${event.id}`}/>)}
             </Carousel>
         </section>
-        <a href="/invites" class="btn self-end">Voir les autres invités</a>
+        <a href="/invites" class="btn self-end lg:col-end-7 lg:col-span-2 lg:justify-self-end">Voir les autres invités</a>
 </Layout>
