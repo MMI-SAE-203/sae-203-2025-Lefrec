@@ -3,7 +3,7 @@ import 'kleur/colors';
 import { $ as $$Layout } from '../chunks/Layout_Do0VXsYQ.mjs';
 import 'clsx';
 import { $ as $$Carousel, a as $$CardCarousel } from '../chunks/CardCarousel_xiKZ-A5v.mjs';
-import { h as allFilmsFiltre, i as allActivites, j as formatDate } from '../chunks/backend_Cebkqg68.mjs';
+import { h as allFilmsFiltre, i as allActivites, j as formatDate } from '../chunks/backend_DR-lhMRY.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro$1 = createAstro();

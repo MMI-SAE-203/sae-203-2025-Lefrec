@@ -2,7 +2,7 @@ import { e as createComponent, f as createAstro, i as renderComponent, r as rend
 import 'kleur/colors';
 import { $ as $$Layout } from '../../chunks/Layout_Do0VXsYQ.mjs';
 import { $ as $$CardFeaturing } from '../../chunks/CardFeaturing_BHghpDu6.mjs';
-import { g as getActivite, a as getInvite } from '../../chunks/backend_Cebkqg68.mjs';
+import { g as getActivite, a as getInvite } from '../../chunks/backend_DR-lhMRY.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro();

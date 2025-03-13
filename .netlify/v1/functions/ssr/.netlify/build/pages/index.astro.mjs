@@ -3,7 +3,7 @@ import 'kleur/colors';
 import { $ as $$Layout } from '../chunks/Layout_Do0VXsYQ.mjs';
 import { $ as $$Carousel, a as $$CardCarousel } from '../chunks/CardCarousel_xiKZ-A5v.mjs';
 import { $ as $$CardInvite } from '../chunks/CardInvite_CjKikWCp.mjs';
-import { d as allFilms, f as allInvites } from '../chunks/backend_Cebkqg68.mjs';
+import { d as allFilms, f as allInvites } from '../chunks/backend_DR-lhMRY.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {

@@ -1,7 +1,7 @@
 import { e as createComponent, f as createAstro, i as renderComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute } from '../../chunks/astro/server_DMsw3aH6.mjs';
 import 'kleur/colors';
 import { $ as $$Layout } from '../../chunks/Layout_Do0VXsYQ.mjs';
-import { a as getInvite, e as getActivitesAndFilmsById } from '../../chunks/backend_Cebkqg68.mjs';
+import { a as getInvite, e as getActivitesAndFilmsById } from '../../chunks/backend_DR-lhMRY.mjs';
 import { $ as $$Carousel, a as $$CardCarousel } from '../../chunks/CardCarousel_xiKZ-A5v.mjs';
 export { renderers } from '../../renderers.mjs';
 

@@ -2,7 +2,7 @@ import { e as createComponent, i as renderComponent, r as renderTemplate, m as m
 import 'kleur/colors';
 import { $ as $$Layout } from '../chunks/Layout_Do0VXsYQ.mjs';
 import { $ as $$CardInvite } from '../chunks/CardInvite_CjKikWCp.mjs';
-import { f as allInvites } from '../chunks/backend_Cebkqg68.mjs';
+import { f as allInvites } from '../chunks/backend_DR-lhMRY.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
