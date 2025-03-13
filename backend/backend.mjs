@@ -206,7 +206,8 @@ export async function allFilmsFiltre(jour, genre) {
 }
 
 export async function addMessage(data) {
-    const records = pb.collection('CONTACT').create(data)
+    const records = pb.collection('CONTACT').create(data);
+    return records;
 }
 
 
