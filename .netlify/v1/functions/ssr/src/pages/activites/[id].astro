@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CardFeaturing from "../../components/CardFeaturing.astro";
+import { getActivite, getInvite } from "../../../backend/backend.mjs";
+
+const { id } = Astro.params;
+const activite = await getActivite(id);
+console.log(activite);
+const invite = await getInvite(activite.encadrer);
+console.log(invite);
+---
+
+<Layout titre={activite.titre}>
+    <section class="section flex-row lg:col-span-6">
+        <img
+            class="w-1/2 h-[150px] object-cover lg:h-[200px]"
+            src={activite.photo_URL}
+            alt="Illustration de l'activité"
+            loading="lazy"
+        />
+        <div class="flex flex-col gap-2">
+            <p class="font-heading text-xl lg:text-3xl">{activite.titre}</p>
+            <div
+                class="flex flex-wrap gap-2 text-xs font-semibold *:border-1 *:rounded-md *:p-1 lg:text-sm"
+            >
+                <p>{activite.type}</p>
+            </div>
+            <p class="text-xs lg:text-sm">
+                {"Le " + activite.jour + " à " + activite.heure}
+            </p>
+        </div>
+    </section>
+    <section class="section lg:col-span-4">
+        <h3>Présentation</h3>
+        <p>{activite.description}</p>
+    </section>
+    <section class="section lg:col-span-2">
+        <CardFeaturing {...invite} filmBool={false} />
+    </section>
+    <a href="/programme" class="btn self-end lg:col-end-7 lg:col-span-2 lg:justify-self-end">Voir tout le programme</a>
+</Layout>

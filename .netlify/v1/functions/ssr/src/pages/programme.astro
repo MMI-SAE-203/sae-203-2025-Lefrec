@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CardProgramme from "../components/CardProgramme.astro";
+import Carousel from "../components/Carousel.astro";
+import CardCarousel from "../components/CardCarousel.astro";
+import {
+    allFilmsFiltre,
+    formatDate,
+    allActivites,
+} from "../../backend/backend.mjs";
+
+let message_film = "";
+let films = await allFilmsFiltre();
+let activites = await allActivites();
+
+if (Astro.request.method === "POST") {
+    const data = await Astro.request.formData();
+    const jour = data.get("jour");
+    const genre = data.get("genre");
+    films = await allFilmsFiltre(jour, genre);
+    if (films.length == 0) {
+        message_film =
+            "Malheureusement, aucun des films prévus cette année ne correspond à votre recherche :(";
+    } else {
+        message_film =
+            "Voici les films " +
+            (genre ? "de type " + genre + " " : "") +
+            "qui seront au festival" +
+            (jour ? " le " + formatDate(jour) : "");
+    }
+}
+---
+
+<Layout
+    titre="Le programme"
+    photo_URL="https://paolo-vincent.fr/photo/onecalendar-1024x683.avif"
+>
+    <section class="section col-span-6">
+            <h2>Projections</h2>
+            <div class="flex flex-col gap-2 border-2 border-ton rounded-lg p-2">
+                <p>Filter les séances</p>
+                <form id="FormFilms" method="POST" class="flex flex-col gap-2">
+                    <div class="flex flex-wrap gap-4">
+                        <select
+                            name="jour"
+                            class="p-2 border border-gray-300 rounded-md bg-white text-gray-700"
+                        >
+                            <option value="">Tous les jours</option>
+                            <option value="2025-08-08">Vendredi</option>
+                            <option value="2025-08-09">Samedi</option>
+                            <option value="2025-08-10">Dimanche</option>
+                        </select>
+
+                        <select
+                            name="genre"
+                            class="p-2 border border-gray-300 rounded-md bg-white text-gray-700"
+                        >
+                            <option value="">Tous les genres</option>
+                            <option value="drame">Drame</option>
+                            <option value="comédie">Comédie</option>
+                            <option value="science-fiction"
+                                >Science-Fiction</option
+                            >
+                            <option value="horreur">Horreur</option>
+                            <option value="animation">Animation</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn self-end">
+                        Appliquer les filtres
+                    </button>
+                </form>
+            </div>
+            <div class="flex flex-col gap-2 lg:grid lg:grid-cols-2">
+                {
+                    films.map((film) => (
+                        <CardProgramme {...film} lien={`/films/${film.id}`} />
+                    ))
+                }
+            </div>
+            <p class="text-center">{message_film}</p>
+    </section>
+    <section class="section col-span-6">
+            <h2>Activités</h2>
+            <p>
+                Tout au long du festival, des activités diverses vous serons
+                proposées. Encadré par nos <strong>très chers invités</strong>,
+                ces moments de partage vous permettrons de plongez de l'univers
+                de cinéma.
+            </p>
+            <Carousel unique={activites.length == 1 ? true : false}>
+                {
+                    activites.map((activite) => (
+                        <CardCarousel
+                            {...activite}
+                            lien={`/activites/${activite.id}`}
+                            unique={activites.length == 1 ? true : false}
+                        />
+                    ))
+                }
+            </Carousel>
+    </section>
+    <section class="section col-span-4 col-start-2">
+            <h3>Comment s'organiser ?</h3>
+            <p>
+                Si vous avez des questions sur la programmation ou
+                l'organisation du festival ou si vous ne savez pas comment vous
+                organiser pour Ciné Flash 25, vous pouvez prendre contact avec
+                l'équipe via la page dédiée ou peut-être être aiguillé par la page infos
+                pratiques.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-between">
+                <a class="btn" href="/contact">Nous contacter</a>
+                <a class="btn" href="/infos">Infos pratiques</a>
+            </div>
+    </section>
+</Layout>
